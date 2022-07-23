@@ -28,6 +28,12 @@ const Configuration = () => {
         },
       },
 
+      // variable: {
+      //   config: {
+      //     placeholder: 'Enter something',
+      //   },
+      // },
+
       variable: {
         class: CustomVariable,
         inlineToolbar: true,
