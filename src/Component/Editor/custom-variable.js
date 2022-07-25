@@ -7,7 +7,7 @@ class CustomVariable {
   }
 
   render() {
-    return document.createElement('input');
+    return document.createElement('p');
   }
 
   save(blockContent) {

@@ -1,6 +1,6 @@
 import React from 'react';
-import SimpleImage from './simple-image';
-import CustomVariable from './custom-variable';
+import SimpleImage from './Editor/simple-image';
+import CustomVariable from './Editor/custom-variable';
 import Header from '@editorjs/header';
 import List from '@editorjs/list';
 import Warning from '@editorjs/warning';
@@ -13,8 +13,7 @@ import Table from '@editorjs/table';
 import InlineCode from '@editorjs/inline-code';
 import Link from '@editorjs/link';
 import ImageTool from '@editorjs/image';
-// import CodeTool from '@editorjs/code-tool';
-// import ImageTool from '@editorjs/image-tool';
+
 
 const Configuration = () => {
   return {
@@ -27,12 +26,6 @@ const Configuration = () => {
           placeholder: 'Enter something',
         },
       },
-
-      // variable: {
-      //   config: {
-      //     placeholder: 'Enter something',
-      //   },
-      // },
 
       variable: {
         class: CustomVariable,
