@@ -9,61 +9,42 @@ import * as docx from 'docx';
 export const editor = new EditorJS(Configuration());
 
 const generateWordDocument = async () => {
-  const item = await generateParagraph();
-  console.log('i',item);
-  const doc = new Document({
-    sections: [
-      {
-        properties: {},
-        children: [
-          new docx.Paragraph({
-            children: [item],
-          }),
-        ],
-      },
-    ],
-  });
+  let doc;
+  const paragraph = await generateParagraph();
+  console.log('paragraph', paragraph);
+
+  // const paragraph = paragraph.map(i => i.data.text)
+  // console.log('paragraph', paragraphElem)
+
+  for(let i=0; i<paragraph.length; i++){
+    console.log('paragraphElement-----', paragraph[i].data.text)
+
+    doc = new docx.Document({
+      sections: [
+        {
+          properties: {},
+          children: [
+            new docx.Paragraph({
+              children: [ new TextRun( `${paragraph[i].data.text}`)],
+            }),
+          ],
+        },
+      ],
+    });
+  }
+
 
   docx.Packer.toBlob(doc).then((blob) => {
-    console.log(blob);
     saveAs(blob, 'example.docx');
-    console.log('Document created successfully');
   });
-}
-
-// function generateWordDocument() {
-//   const doc = new Document({
-//     creator: 'Clippy',
-//     title: 'Sample Document',
-//     description: 'A brief example of using docx',
-//   });
-//
-//   const p = [];
-//   editor.save().then((outputData) => {
-//     outputData.blocks.map((item) => {
-//       console.log(item.data);
-//       // switch (item.type) {
-//       //   case 'paragraph':
-//       p.push(
-//           new Paragraph({
-//             text: `${item.data}`, // это для проверки
-//           })
-//       );
-//       console.log(p);
-//
-//       //     break;
-//       // }
-//     });
-
-// doc.addSection({
-//   children: [p],
+};
 
 const Editor = () => {
   const onSave = () => {
     editor
       .save()
       .then((outputData) => {
-        console.log('Article data: ', outputData);
+        console.log("Article data: ", outputData);
       })
       .catch((error) => {
         console.log('Saving failed: ', error);
