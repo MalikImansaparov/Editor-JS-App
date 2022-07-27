@@ -1,63 +1,75 @@
 import React from 'react';
 import EditorJS from '@editorjs/editorjs';
 import Configuration from './configuration';
-import { Document, Packer, Paragraph, TextRun } from 'docx';
+import {Document, Packer, Paragraph, TextRun, Header, HeadingLevel, AlignmentType} from 'docx';
 import { saveAs } from 'file-saver';
-import { generateParagraph } from './utils';
+import {generateHeader, generateImage, generateParagraph} from './utils';
 import * as docx from 'docx';
 
 export const editor = new EditorJS(Configuration());
 
 const generateWordDocument = async () => {
-  let doc;
-  const paragraph = await generateParagraph();
-  console.log('paragraph', paragraph);
+  const data = await generateParagraph();
+  const header = await generateHeader();
+  const image = await generateImage();
+  console.log('data', data);
 
-  // const paragraph = paragraph.map(i => i.data.text)
-  // console.log('paragraph', paragraphElem)
-
-  for(let i=0; i<paragraph.length; i++){
-    console.log('paragraphElement-----', paragraph[i].data.text)
-
-    doc = new docx.Document({
-      sections: [
-        {
-          properties: {},
-          children: [
-            new docx.Paragraph({
-              children: [ new TextRun( `${paragraph[i].data.text}`)],
+  const doc = new Document({
+    sections: [
+      {
+          headers: {
+              default: new Header({
+                  children: [
+                      new docx.Paragraph({
+                          children: [...header.map(i => new TextRun({
+                              text: i.data.text,
+                              bold: true,
+                              heading: HeadingLevel.TITLE,
+                              alignment: AlignmentType.CENTER,
+                              pageBreakBefore: true,
+                          } ))],
+                      }),
+                  ],
+              }),
+          },
+        children: [
+          new docx.Paragraph({
+            children: [...data.map(i => new docx.Paragraph(i.data.text ))],
+          }),
+            new Paragraph({
+                children: [image],
             }),
-          ],
-        },
-      ],
-    });
-  }
+        ],
 
+      },
+    ],
+  });
 
   docx.Packer.toBlob(doc).then((blob) => {
     saveAs(blob, 'example.docx');
+    console.log('Document created successfully');
   });
 };
 
 const Editor = () => {
   const onSave = () => {
     editor
-      .save()
-      .then((outputData) => {
-        console.log("Article data: ", outputData);
-      })
-      .catch((error) => {
-        console.log('Saving failed: ', error);
-      });
+        .save()
+        .then((outputData) => {
+          console.log("Article data: ", outputData);
+        })
+        .catch((error) => {
+          console.log('Saving failed: ', error);
+        });
   };
 
   return (
-    <div>
-      <h1>My Editor</h1>
-      <button onClick={onSave}>Save</button>
-      <button onClick={generateWordDocument}>Download</button>
-      <div id="editorjs" />
-    </div>
+      <div>
+        <h1>My Editor</h1>
+        <button onClick={onSave}>Save</button>
+        <button onClick={generateWordDocument}>Download</button>
+        <div id="editorjs" />
+      </div>
   );
 };
 
