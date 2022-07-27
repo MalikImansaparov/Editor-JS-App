@@ -1,5 +1,5 @@
-import { editor } from "./index.";
 import * as docx from "docx";
+import {editor} from "./editor";
 
 export const generateParagraph = () => {
     return editor.save().then((outputData) => {

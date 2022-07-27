@@ -1,5 +1,3 @@
-import React from 'react';
-import SimpleImage from './Editor/simple-image';
 import CustomVariable from './Editor/custom-variable';
 import Header from '@editorjs/header';
 import List from '@editorjs/list';
@@ -13,7 +11,6 @@ import Table from '@editorjs/table';
 import InlineCode from '@editorjs/inline-code';
 import Link from '@editorjs/link';
 import ImageTool from '@editorjs/image';
-
 
 const Configuration = () => {
   return {
