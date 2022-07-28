@@ -8,7 +8,6 @@ import Marker from '@editorjs/marker';
 import Delimiter from '@editorjs/delimiter';
 import Embed from '@editorjs/embed';
 import Table from '@editorjs/table';
-import InlineCode from '@editorjs/inline-code';
 import Link from '@editorjs/link';
 import ImageTool from '@editorjs/image';
 
@@ -74,11 +73,6 @@ const Configuration = () => {
       // },
 
       delimiter: Delimiter,
-
-      inlineCode: {
-        class: InlineCode,
-        shortcut: 'CMD+SHIFT+C',
-      },
 
       linkTool: Link,
 
