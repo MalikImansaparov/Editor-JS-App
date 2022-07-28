@@ -1,14 +1,8 @@
 import React from 'react';
 import {Document, Paragraph, TextRun, Header, HeadingLevel, AlignmentType} from 'docx';
 import { saveAs } from 'file-saver';
-import { generateHeader, generateImage, generateParagraph } from './utils';
 import * as docx from 'docx';
 import {editor} from "./editor";
-
-const generateWordDocument = async () => {
-
-
-};
 
 const Editor = () => {
   const onSave = () => {
@@ -21,18 +15,19 @@ const Editor = () => {
             sections: [
               {
                 children: outputData.blocks.map((e) => {
+                  console.log(e);
                   switch (e.type) {
                     case "paragraph":
                       let data = e.data.text.split(/(<b>|<\/b>)/).filter((u) => u !== '</b>');
                       let children = []
-                      console.log(data);
 
                       for (let i = 0; i < data.length - 1; i++) {
                         if (data[i] === "<b>") {
                           children.push(new TextRun({
                             text: data[i + 1],
-                            bold: true,
+                            bold: true
                           }))
+                          console.log('c', children)
                           i += 1;
                         } else {
                           children.push(new TextRun({
@@ -49,6 +44,7 @@ const Editor = () => {
                       return new Paragraph({
                         children,
                       })
+
                     default:
                       return new Paragraph({
                         children: [
@@ -77,8 +73,7 @@ const Editor = () => {
   return (
       <div>
         <h1>My Editor</h1>
-        <button onClick={onSave}>Save</button>
-        <button onClick={generateWordDocument}>Download</button>
+        <button onClick={onSave}>Download</button>
         <div id="editorjs" />
       </div>
   );
