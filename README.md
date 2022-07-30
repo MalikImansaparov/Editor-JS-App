@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# My Editor.js wrapper library 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<a href="https://editorjs.io/"><p align="center"><img src="https://capella.pics/79ce946a-d636-41cd-aa96-d3bc5ecfde03.jpg"></p></a>
 
-## Available Scripts
+[![](https://flat.badgen.net/npm/v/@editorjs/editorjs?icon=npm)](https://www.npmjs.com/package/@editorjs/editorjs)
+[![](https://flat.badgen.net/bundlephobia/min/@editorjs/editorjs?color=cyan)](https://www.npmjs.com/package/@editorjs/editorjs)
+[![](https://flat.badgen.net/bundlephobia/minzip/@editorjs/editorjs?color=green)](https://www.npmjs.com/package/@editorjs/editorjs)
+[![Backers on Open Collective](https://opencollective.com/editorjs/backers/badge.svg)](#backers)
+[![Sponsors on Open Collective](https://opencollective.com/editorjs/sponsors/badge.svg)](#sponsors)
+[![](https://img.shields.io/npm/l/@editorjs/editorjs?style=flat-square)](https://www.npmjs.com/package/@editorjs/editorjs)
+[![Join the chat at https://gitter.im/codex-team/editor.js](https://badges.gitter.im/codex-team/editor.js.svg)](https://gitter.im/codex-team/editor.js?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-In the project directory, you can run:
+| | | | | | |
+| --------- | --------- | --------- | --------- | --------- | --------- |
+| <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="16px" height="16px" /> Edge 12+ | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="16px" height="16px" /> Firefox 18+ | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="16px" height="16px" /> Chrome 49+ | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="16px" height="16px" /> Safari 10+ | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari-ios/safari-ios_48x48.png" alt="iOS Safari" width="16px" height="16px" /> iOS Safari 10+ | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="16px" height="16px" /> Opera 36+
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Roadmap
 
-### `npm test`
+<img align="right" width="342" src="https://user-images.githubusercontent.com/3684889/152149321-3f9c585d-7d87-4dad-ab14-def0d526e71c.png" hspace="50">
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Collaborative editing
+  - [ ] Implement Inline Tools JSON format `In progress` [#1801](https://github.com/codex-team/editor.js/pull/1801)
+  - [ ] Implement Operations creation and transformations
+  - [ ] Implement Tools API changes
+  - [ ] Implement Server and communication
+  - [ ] Update basic tools to fit the new API
 
-### `npm run build`
+- Unified Toolbox
+  - [x] Block Tunes moved left [#1815](https://github.com/codex-team/editor.js/pull/1815)
+  - [x] Toolbox become vertical [#2014](https://github.com/codex-team/editor.js/pull/2014)
+  - [x] Ability to display several Toolbox buttons by the single Tool [#2050](https://github.com/codex-team/editor.js/pull/2050)
+  - [ ] Conversion Toolbar uses Unified Toolbox `In progress`
+  - [ ] Block Tunes become vertical
+  - [ ] Conversion Toolbar added to the Block Tunes
+- Ecosystem improvements
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
